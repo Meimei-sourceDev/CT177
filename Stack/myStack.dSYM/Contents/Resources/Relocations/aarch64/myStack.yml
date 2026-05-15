@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/meimei/Documents/practice_programming/c_cpp/DSnA/Stack/myStack'
+relocations:     []
+...
