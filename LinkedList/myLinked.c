@@ -227,6 +227,21 @@ void reverseList(List L){
     }
     L->Next = prev;
 }
+void normalize(List *L){
+    Position P = *L;
+    while(P->Next != NULL){
+        Position Q = P->Next;
+        while(Q->Next != NULL){
+            if(Q->Next->Element == P->Next->Element){
+                Position temp = Q->Next;
+                Q->Next = temp->Next;
+                free(temp);
+            }
+            else Q = Q->Next;
+        }
+        P = P->Next;
+    }
+}
 
 int main() {
     List L;

@@ -102,4 +102,44 @@ void destroyList(ElementType x, List *L){
         delete(locate(x, *L), L);
     }
 }
-int main(){}
+
+void readList(List *L){
+    int n;
+    printf("Enter list size: ");
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++){
+        int x;
+        printf("Enter element #: ");
+        scanf("%d", &x);
+        insert(x, endList(*L), L);
+    }
+    printf("\n");
+}
+
+/*void normalize(List *L){
+    Position i,j, writeIndex;
+    for(int i = 0; i < L->Last; i++){
+        int flag = 0;
+        for(int j = 0; j < writeIndex; j++){
+            if(L->Element[i] == L->Element[j]){
+                flag = 1;
+                break;
+            }
+        }
+        if(!flag){
+            L->Element[writeIndex] = L->Element[i];
+            writeIndex++;
+        }
+    }
+    L->Last = writeIndex;
+}
+    */
+
+int main(){
+    List L;
+    makenullList(&L);
+    readList(&L);
+    printList(L);
+    normalize(&L);
+    printList(L);
+}
