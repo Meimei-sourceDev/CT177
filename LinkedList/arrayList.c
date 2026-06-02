@@ -116,25 +116,6 @@ void readList(List *L){
     printf("\n");
 }
 
-/*void normalize(List *L){
-    Position i,j, writeIndex;
-    for(int i = 0; i < L->Last; i++){
-        int flag = 0;
-        for(int j = 0; j < writeIndex; j++){
-            if(L->Element[i] == L->Element[j]){
-                flag = 1;
-                break;
-            }
-        }
-        if(!flag){
-            L->Element[writeIndex] = L->Element[i];
-            writeIndex++;
-        }
-    }
-    L->Last = writeIndex;
-}
-    */
-
 int main(){
     List L;
     makenullList(&L);
