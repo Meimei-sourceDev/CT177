@@ -55,32 +55,28 @@ void in(List L){
 	printf("\n");
 }
 
-void unionSet(List L1, List L2, List *L){
-    makenullList(L);
-    Position P = L1;
-    Position Q = L2;
-    while(P->Next != NULL){
-        insertList(P->Next->Element, endList(*L), L);
-        P = P->Next;
-    }
-    while(Q->Next != NULL){
-        int value = Q->Next->Element;
-        if(!member(value, L1)){
-            insertList(value, endList(*L), L);
-        }
-        Q = Q->Next;
-    }
-    normalize(L);
+void difference(List L1, List L2, List *L){
+	makenullList(L);
+	Position P = L1;
+	while(P->Next != NULL){
+		int value = P->Next->Element;
+		if(!member(value, L2)){ //nho check member
+			insertList(value, endList(*L), L);
+		}
+		P = P->Next;
+	}
 }
 
 int main(){
-    List L1, L2, L;
-    L1 = nhap();
-    L2 = nhap();
-    unionSet(L1, L2, &L);
+	List L1, L2, L;
+	L1 = nhap();
+	L2 = nhap();
 
-    in(L1);
-    in(L2);
-    in(L);
+	in(L1);
+	in(L2);
+	difference(L1, L2, &L);
+	in(L);
 }
+
+
 
